@@ -3,7 +3,7 @@ teams = {}
 def menu():
 	print("enter 1 for Add Employee")
 	print("enter 2 for Delete Employee")
-	print("enter 3 for Search Employee by name")
+	print("enter 3 for Search Employee")
 	print("enter 4 for Change Employee Data")
 	print("enter 5 for Display all Employees")
 	print("enter 6 for Manage Teams")
@@ -32,17 +32,39 @@ def delete_emp():
 	else:
 		print("Employee id is incorrect")
 
+def search_menu():
+	print("\tpress 1 for Search by Name")
+	print("\tpress 2 for Search by Age")
+	print("\tpress 3 for Search by Salary")
+	print("\tpress 4 for Search by Gender")
+	print("\tpress 5 for exit")
+
 def search_emp():
-	n = input("Enter the name to search : ")
-	f = False
-	for i in employees.values():
-		if i["Name"] == n:
-			print(f"\t{i['Name']} is found")
-			f = True
+	while True:
+		search_menu()
+		ch = int(input("Enter the choice : "))
+		li = []
+		if ch == 1:
+			n = input("Enter the name to search : ")
+			li = list(filter(lambda a:a["Name"]==n,employees.values()))
+		elif ch == 2:
+			age = int(input("Enter the age to search : "))
+			li = list(filter(lambda a:a["Age"]==age,employees.values()))
+		elif ch == 3:
+			s = int(input("Enter the salary to search : "))
+			li = list(filter(lambda a:a["Salary"]==s,employees.values()))
+		elif ch == 4:
+			g = input("Enter the gender to search : ")
+			li = list(filter(lambda a:a["Gender"]==g,employees.values()))
+		elif ch ==5:
 			break
-	if f == False:
-		print("\tNot Found")
-		
+		else:
+			print("Invalid choice")
+		if li:
+			for i in li:
+				print(i)
+	
+
 def change_data_choice():
 	
 	print("\tpress 1 for change Name")
@@ -50,7 +72,6 @@ def change_data_choice():
 	print("\tpress 3 for change Salary")
 	print("\tpress 4 for change Gender")
 	print("\tpress 5 for exit")
-
 		
 def change_emp_data():
 	while True:
