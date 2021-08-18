@@ -1,6 +1,7 @@
 import employee as emp
 import manage_teams as team
-
+from search_emp import search_emp_fn
+from change_emp import change_emp_data
 
 def menu():
 	print("enter 1 for Add Employee")
@@ -23,9 +24,9 @@ while True:
 	elif c==2:
 		emp.delete_emp()
 	elif c==3:
-		emp.search_emp()	 
+		search_emp_fn()
 	elif c==4:
-		emp.change_emp_data()
+		change_emp_data()
 	elif c==5:
 		emp.display_emp()       
 	elif c==6:

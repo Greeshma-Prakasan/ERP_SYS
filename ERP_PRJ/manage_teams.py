@@ -1,4 +1,5 @@
 import employee as emp
+
 teams = {}
 def manage_all_teams_menu():
 	print("\t1.Create Teams")
