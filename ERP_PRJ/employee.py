@@ -100,5 +100,13 @@ def search_emp():
 			print("Invalid choice")
 		if li:
 			for i in li:
-				print(i)
+				print("\t\t______________Employee Details_______________")
+				print(f"\t\tName - {i['Name']}")
+				print(f"\t\tAge - {i['Age']}")
+				print(f"\t\tGender - {i['Gender']}")
+				print(f"\t\tPlace - {i['Place']}")
+				print(f"\t\tSalary - {i['Salary']}")
+				print(f"\t\tPrevious Company - {i['Previous Company']}")
+				print(f"\t\tJoining Date - {i['Joining Date']}")
+				print("\t\t_________________________________________________")
 				
