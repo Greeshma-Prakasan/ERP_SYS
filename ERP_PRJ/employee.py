@@ -1,6 +1,7 @@
+from user import User
 employees = []
 
-class Employee:
+class Employee(User):
 	def __init__(self,eid,name,age,gender,place,salary,pre_com,j_date):
 		self.employee_id = eid
 		self.name = name
@@ -31,7 +32,10 @@ def add_employee():
 	p = input("\tEnter the place : ")
 	s = int(input("\tEnter the salary : "))
 	pre = input("\tEnter the previous company : ")
-	j = input("\tEnter the joining date : ") 
+	j = input("\tEnter the joining date : ")
+	role = input("\tEnter the role : ")
+	u = input("\tEnter the Username : ")
+	pas = input("\tEnter the Password : ")
 	# if eid not in employees.keys():
 	# 	employees[eid] = {"Name":n,"Age":a,"Gender":g,"Place":p,"Salary":s,"Previous Company":pre,"Joining Date":j}
 	#
@@ -39,6 +43,9 @@ def add_employee():
 	# 	print("\tEmployee id is already present")
 	if eid:
 		e = Employee(eid,n,a,g,p,s,pre,j)
+		e.role = role
+		e.set_username(u)
+		e.set_password(pas)
 		employees.append(e)
 
 
@@ -76,6 +83,8 @@ def display_emp():
 			print(f"\tSalary - {i.salary}")
 			print(f"\tPrevious Company - {i.previous_company}")
 			print(f"\tJoining Date - {i.joining_date}")
+			print(f"\tUsername - {i.get_username()}")
+			print(f"\tRole - {i.role}")
 			print("\t_________________________________________________")
 
 
